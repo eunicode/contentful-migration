@@ -14,7 +14,10 @@ module.exports = function (migration) {
     from: ["description"],
     to: ["descriptionRichText"],
     transformEntryForLocale: async function (fromFields, locale) {
-      // Return Rich Text instead of Markdown
+      if (!fromFields.description) {
+        return;
+      }
+
       async function transformDescription(description, locale) {
         const desc = description[locale];
         return await richTextFromMarkdown(desc);
@@ -25,13 +28,8 @@ module.exports = function (migration) {
         locale
       );
 
-      const richTextDocContent = richTextDocument.content;
+      const richTextDocContent = await richTextDocument.content;
 
-      // console.log(richTextDocument);
-      // The content property of the Rich Text document is an array of paragraphs, embedded entries, embedded assets.
-      // const contentArr = _.flatten(richTextDocument);
-
-      // The returned Rich Text object to be added to the new "copy" field
       const result = {
         descriptionRichText: richTextDocContent,
       };

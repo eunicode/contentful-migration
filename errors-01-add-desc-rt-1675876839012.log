@@ -1,0 +1,7 @@
+TypeError: Cannot read properties of undefined (reading 'content')
+    at EntryTransformAction.transformEntryForLocale (/Users/eunice/github/contentful-migration/scripts/01-add-desc-rt.js:29:51)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async EntryTransformAction.applyTo (/usr/local/Cellar/contentful-cli/1.16.5/libexec/lib/node_modules/contentful-cli/node_modules/contentful-migration/built/lib/action/entry-transform.js:47:47)
+    at async IntentList.applyTo (/usr/local/Cellar/contentful-cli/1.16.5/libexec/lib/node_modules/contentful-cli/node_modules/contentful-migration/built/lib/intent-list/index.js:90:21)
+    at async migration (/usr/local/Cellar/contentful-cli/1.16.5/libexec/lib/node_modules/contentful-cli/node_modules/contentful-migration/built/lib/migration-parser.js:154:9)
+    at async run (/usr/local/Cellar/contentful-cli/1.16.5/libexec/lib/node_modules/contentful-cli/node_modules/contentful-migration/built/bin/cli.js:111:23)
