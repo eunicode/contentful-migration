@@ -30,8 +30,14 @@ module.exports = function (migration) {
 
       const richTextDocContent = await richTextDocument.content;
 
+      const contentArray = _.flatten(richTextDocContent);
+
       const result = {
-        descriptionRichText: richTextDocContent,
+        descriptionRichText: {
+          nodeType: "document",
+          content: contentArray,
+          data: {},
+        },
       };
 
       return result;
